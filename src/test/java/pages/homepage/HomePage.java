@@ -10,6 +10,10 @@ public class HomePage extends BasePage {
     public static HomePage instance;
 
     private By logo = By.id("logo");
+    private By signInButton = By.id("btn1");
+    private By skipSignInButton = By.id("byn2");
+    private By emailField = By.id("email");
+    private By nextButton = By.id("entering");
 
     private HomePage(){
     }
@@ -25,6 +29,25 @@ public class HomePage extends BasePage {
         LOG.info("Check if Logo is displayed");
         return driver.findElement(logo).isDisplayed();
 
+    }
+    public void clickSignInButton (){
+        LOG.info("Click Sign in button");
+        driver.findElement(signInButton).click();
+    }
+
+    public void clickSkipSignInButton(){
+        LOG.info("Click skip sign in button");
+        driver.findElement(skipSignInButton).click();
+    }
+
+    public void clickBack(){
+        LOG.info("Click the browser back button");
+        driver.navigate().back();
+    }
+
+    public void checkEmailField(String email){
+        LOG.info("Check email field");
+        driver.findElement(emailField).sendKeys(email);
     }
 
 }
